@@ -1,7 +1,7 @@
 {
   "name":"Weixiang Zheng",
   "description":"The first try to understand PWA",
-  "display":"fullscreen",
+  "display":"minimal-ui",
   "start_url":"/index.html",
   "icons":[
     {
