@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给宝贝的惊喜</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .message {
+            position: fixed;
+            font-size: 2em;
+            color: #81D8D0;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+
+        .message.show {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">特别的爱给特别的你</h1>
+        <button class="button" onclick="showMessage()">宝贝开心按钮</button>
+    </div>
+
+    <script>
+        function showMessage() {
+            const message = document.createElement('div');
+            message.className = 'message';
+            message.textContent = '哈！';
+            
+            // 随机位置
+            message.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+            message.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+            
+            document.body.appendChild(message);
+            
+            // 添加动画效果
+            setTimeout(() => message.classList.add('show'), 100);
+            
+            // 3秒后移除消息
+            setTimeout(() => {
+                message.classList.remove('show');
+                setTimeout(() => message.remove(), 500);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
